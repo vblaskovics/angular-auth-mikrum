@@ -30,7 +30,7 @@ export class AuthService {
     private router: Router
     ) {}
 
-  login(loginData: User): Observable<any> {
+  login(loginData: User): Observable<User | User[] | null> {
     return this.http.post<{ accessToken: string }>(
       this.loginUrl,
       { email: loginData.email, password: loginData.password }

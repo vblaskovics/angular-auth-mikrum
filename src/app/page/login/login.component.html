@@ -1,1 +1,22 @@
-<p>login works!</p>
+<div class="row">
+    <div class="col-12 text-center">
+        <form #loginForm="ngForm">
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
+            <label for="inputEmail">Email address</label>
+            <input id="inputEmail" class="form-control" name="email" type="text" 
+                [(ngModel)]="user.email" #emailField="ngModel">
+            <label for="inputPassword">Password</label>
+            <input id="inputPassword" class="form-control" name="password" type="password"
+                [(ngModel)]="user.password" #passwordField>
+
+            <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">
+                Sign in
+            </button>
+
+            <div *ngIf="serverError && loginForm.submitted" class="alert alert-danger mt-3"> 
+                {{ serverError }}
+            </div>
+        </form>
+    </div>
+</div>
