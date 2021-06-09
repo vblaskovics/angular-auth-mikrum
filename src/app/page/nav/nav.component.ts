@@ -27,4 +27,8 @@ export class NavComponent implements OnInit {
     this.userSub?.unsubscribe();
   }
 
+  onLogout():void {
+    this.auth.logout();
+  }
+
 }
