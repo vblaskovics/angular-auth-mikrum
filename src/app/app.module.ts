@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { AnalyticsService } from './service/analytics.service';
 import { AnalyticsImplementation, Metric } from './service/analytics.interface';
 import { LoggingInterceptorService } from './service/logging-interceptor.service';
+import { MoreComponent } from './page/more/more.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoggingInterceptorService } from './service/logging-interceptor.service
     UsersComponent,
     ForbiddenComponent,
     UserEditComponent,
-    LoginComponent
+    LoginComponent,
+    MoreComponent
   ],
   imports: [
     BrowserModule,

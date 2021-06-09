@@ -10,7 +10,10 @@ export class ConfigService {
   navigation: {label: string, href: string, role: number}[] = [
     {label: 'Home', href: '/', role: 1},
     {label: 'Users', href: '/users', role: 2},
-  ]
+    {label: 'More', href: '/more', role: 2},
+  ];
+
+  routesToGoBeforeMore = ['users', 'login'];
 
   constructor() { }
 }

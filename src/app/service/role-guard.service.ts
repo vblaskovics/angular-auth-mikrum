@@ -3,20 +3,19 @@ import { ActivatedRouteSnapshot, CanActivate, Router } from '@angular/router';
 import { AuthService } from './auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RoleGuardService implements CanActivate {
-
-  constructor(public auth:AuthService, public router:Router) { }
+  constructor(public auth: AuthService, public router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot) {
     const expectedRole = route.data.expectedRole;
-    const currentUserValue:any = this.auth.currentUserValue;
+    const currentUserValue: any = this.auth.currentUserValue;
 
-    if(
-      !currentUserValue || 
-      currentUserValue.role < expectedRole
-    ) {
+    if (!currentUserValue) {
+      this.router.navigate(['login']);
+      return false;
+    } else if (currentUserValue.role < expectedRole) {
       this.router.navigate(['forbidden']);
       return false;
     }
